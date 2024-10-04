@@ -1,4 +1,4 @@
-<h1>amazon_clone</h1>h1?
+<h1>amazon_clone</h1>
 
 ![image](https://github.com/user-attachments/assets/ae121445-b862-4c10-a109-81e1e6367603)
 
