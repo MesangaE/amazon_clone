@@ -116,13 +116,27 @@ modify the Main.tf file, with ami ID, key name, and region in the Provider.tf. I
 main.tf includes user data which links install_jenkins.sh file on which execution install Jenkins,docker,trivy, and start the sonarqube container on port 9000
 
 
-![terraform1a](https://github.com/user-attachments/assets/3c2609c4-9aa6-473a-9bca-b438fee85c33)
+![initS](https://github.com/user-attachments/assets/1684f705-e5f4-4c77-94ca-5b3845b91e45)
+
 
 
 so I decided to create a new key for the instance. so I added 2 resource blocks and I wanted also the mistakes that I made to be included in this screenshot. I had a typo when I was referring to the attribute local_file. It is always good to validate your terraform configuration before you plan. Instead of 3 resources in the original demo, I had 5 resources planned.
 
 
-![terraform pla](https://github.com/user-attachments/assets/ba219eaa-70bd-4fd4-b8d6-114179d5a860)
+![validateS](https://github.com/user-attachments/assets/dd92bacd-a039-4af7-bc6d-0e4a31e4155d)
+
+
+![applyS](https://github.com/user-attachments/assets/b010688c-d0cf-46e2-bc39-fdedd0bd9c0d)
+
+
+![applyS1](https://github.com/user-attachments/assets/de806c08-4401-445c-897d-38a7a1b73875)
+
+
+
+![applyS2](https://github.com/user-attachments/assets/7bfbe734-0575-4038-8900-afdeb1949c2b)
+
+
+
 
 
 Rem that anytime you add another resource. In my case, I had to add the provider tls and needed to initialize it again. I had a lot of issues adding resource blocks for a keypair because arguments I had used before had become deprecated. Documentation is one place to get all the information you need.
