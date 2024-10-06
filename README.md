@@ -125,7 +125,7 @@ so I decided to create a new key for the instance. so I added 2 resource blocks 
 ![terraform pla](https://github.com/user-attachments/assets/ba219eaa-70bd-4fd4-b8d6-114179d5a860)
 
 
-Rem that anytime you 
+Rem that anytime you add another resource. In my case, I had to add the provider tls and needed to initialize it again. I had a lot of issues adding resource blocks for a keypair because arguments I had used before had become deprecated. Documentation is one place to get all the information you need.
  
 Step 3 → Setup Sonarqube and Jenkins
 Step 4 → ci-cd pipeline
