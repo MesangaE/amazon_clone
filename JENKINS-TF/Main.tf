@@ -29,16 +29,20 @@ resource "aws_security_group" "Jenkins-sg" {
   }
 }
 
-resource "aws_key_pair" "my_key" {  
-  key_name   = "my_key"   
-    public_key = file("~/.ssh/my_key.pub")   
-    }  
+resource "tls_private_key" "clonekey" {
+  algorithm = "RSA"
+  rsa_bits  = 2048
+}
 
+resource "aws_key_pair" "generated_key" {
+  key_name   = "clonekey"
+  public_key = tls_private_key.clonekey.public_key_openssh
+}
 
 resource "aws_instance" "web" {
   ami                    = "ami-089146c5626baa6bf"
   instance_type          = "t3.large"
-  key_name               = aws_key_pair.my_key.key_name
+  key_name               = "clonekey"
   vpc_security_group_ids = [aws_security_group.Jenkins-sg.id]
   user_data              = templatefile("./install_jenkins.sh", {})
 
@@ -52,7 +56,7 @@ resource "aws_instance" "web" {
 resource "aws_instance" "web2" {
   ami                    = "ami-089146c5626baa6bf"
   instance_type          = "t3.medium"
-  key_name               = aws_key_pair.my_key.key_name
+  key_name               = "clonekey"
   vpc_security_group_ids = [aws_security_group.Jenkins-sg.id]
   tags = {
     Name = "Monitering via grafana"
@@ -60,4 +64,9 @@ resource "aws_instance" "web2" {
   root_block_device {
     volume_size = 30
   }
+}
+
+output "private_key" {
+  value     = tls_private_key.clonekey
+  sensitive = true
 }
