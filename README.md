@@ -124,6 +124,8 @@ so I decided to create a new key for the instance. so I added 2 resource blocks 
 
 ![terraform pla](https://github.com/user-attachments/assets/ba219eaa-70bd-4fd4-b8d6-114179d5a860)
 
+
+Rem that anytime you 
  
 Step 3 → Setup Sonarqube and Jenkins
 Step 4 → ci-cd pipeline
