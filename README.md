@@ -137,14 +137,94 @@ so I decided to create a new key for the instance. so I added 2 resource blocks 
 
 
 
-
-
 Rem that anytime you add another resource. In my case, I had to add the provider tls and needed to initialize it again. I had a lot of issues adding resource blocks for a keypair because arguments I had used before had become deprecated. Documentation is one place to get all the information you need.
  
-Step 3 → Setup Sonarqube and Jenkins
-Step 4 → ci-cd pipeline
-Step5 → Monitering via Prmotheus and grafana
-Step 6 → Terraform Destroy
+<h2>Step 3: Setup Sonarqube and Jenkins</h2>
+1. Sonarqube setup
+copy the public IP of your machine paste it into the browser and add the port number, <publicip>:9000. Initial username and password are admin
+one of the instances created by the terraform file. 
+
+
+![sonar1](https://github.com/user-attachments/assets/008e6a34-aeb5-4a03-a060-072caa1d4238)
+
+![sonar2](https://github.com/user-attachments/assets/007bc7d5-0e47-443f-b6ca-4aedf326bfe9)
+
+![sonar3](https://github.com/user-attachments/assets/23be312e-e6a6-4f92-84b1-28328e4d89e0)
+
+![sonar4](https://github.com/user-attachments/assets/7ddc697d-68d4-454a-acbc-e46cd8973ac8)
+
+
+
+2. Jenkins setup
+i had to use EC2 connnect to ssh into this instance because i didnt have the private keypair file on the server i was using
+
+
+![jenkins1](https://github.com/user-attachments/assets/133726af-32a6-44ae-a735-dc9f1828d315)
+
+
+
+![jenkinsa](https://github.com/user-attachments/assets/682ff18c-4475-4d0a-bcec-da97ec89c5d4)
+
+
+![jenkins3](https://github.com/user-attachments/assets/4d7ecd8e-e478-443a-9db0-8314b6a2406b)
+
+
+![jenkins4](https://github.com/user-attachments/assets/5b569093-dce0-46cd-8a76-ad79e1d1fbf5)
+
+
+![jenkins5](https://github.com/user-attachments/assets/856750ac-94b2-4bb4-ab60-1b71f76fa2b7)
+
+
+
+
+![jenkins6](https://github.com/user-attachments/assets/d7fa8967-2827-45f0-bf42-a016a0846627)
+
+
+
+
+
+<h2>Step 4: ci-cd pipeline</h2>
+
+1. Install Plugins listed below
+ Eclipse Temurin Installer (Install without restart)
+
+SonarQube Scanner (Install without restart)
+
+NodeJs Plugin (Install Without restart)
+
+ owasp →The OWASP Plugin in Jenkins is like a “security assistant” that helps you find and fix security issues in your software. It uses the knowledge and guidelines from the Open Web Application Security Project (OWASP) to scan your web applications and provide suggestions on security enhancement. It’s a tool to ensure that your web applications are protected against common security threats and vulnerabilities.
+
+ Prometheus metrics →to monitor Jenkins on Grafana dashboard
+
+ Download all the docker-related plugins
+
+2. add credentials of Sonarqube and Docker
+1st we generate a token for Sonarqube to use in Jenkins credentials as secret text
+
+a. setup sonarqube credentials
+go to http://publicip:9000
+now enter your username and password
+click on security →users →token →generate token
+token_name==jenkins
+
+3. Now we are going to setup tools for jenkins
+go to manage jenkins → tools
+
+a. add jdk
+click on add jdk and select installer adoptium.net
+choose jdk 17.0.8.1+1version and in name section enter jdk 17
+
+
+go to manage jenkins →Configure global setting →add sonarqube servers
+name ==sonar-server
+server_url==http://public_ip:9000
+server authentication token == jenkins →it is created in sonarqube security configurations
+
+
+
+
+<h2>Step5:  Monitering via Prmotheus and grafana</h2>
+<h2>Step 6: Terraform Destroy</h2>
 
 My blog link for this project-->https://aakibkhan1.medium.com/project-7-deployment-of-amazon-clone-app-using-terraform-and-jenkins-ci-cd-32483787ea67
                 
