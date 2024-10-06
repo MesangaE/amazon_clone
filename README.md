@@ -101,8 +101,12 @@ git clone https://github.com/Aakibgithuber/Amazon-app-Deployment-using-terraform
 <h3>Step 2: Building a simple Infrastructure from code using Terraform</h3>
 
  cd JENKINS-TF
-there are three files, main.tf, install_jenkins.sh, provider.tf
-modify the Main.tf file with ami ID and key name.PersonallyI cloned the repo into my local and did the modifications before I pushed it to my repo then I downloaded my modified repo
+
+ ![main tfmodify](https://github.com/user-attachments/assets/cf66f730-928e-4018-ae45-b2bbf7e70301)
+ 
+
+
+modify the Main.tf file, with ami ID, key name, and region in the Provider.tf. I cloned the repo into my local and did the modifications and also changed the name of the repo before I pushed it to my Github and I cloned my modified repo.
  
 Step 3 → Setup Sonarqube and Jenkins
 Step 4 → ci-cd pipeline
