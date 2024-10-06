@@ -82,11 +82,21 @@ git clone https://github.com/Aakibgithuber/Amazon-app-Deployment-using-terraform
  ![cloneuser](https://github.com/user-attachments/assets/dd45f7dd-edc1-4dcf-a7d1-7866e38051cd)
 
 
-  
+  <br>
   go to your terminal and configure AWS with these user credentials
-  
+
+  ---bash
+      sudo apt install awscli 
+      aws configure
+  ---
+
+
+  ![configureaws](https://github.com/user-attachments/assets/5b8efb5a-400e-4f62-b5ea-de84457c6e2f)
+
 
   note →I will provide the administrator access for now but we are careful while attaching the policies on your workspace
+
+  </br>
   
 <h3>Step 2: Building a simple Infrastructure from code using Terraform</h3>
 
