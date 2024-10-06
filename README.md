@@ -107,6 +107,8 @@ git clone https://github.com/Aakibgithuber/Amazon-app-Deployment-using-terraform
 
 
 modify the Main.tf file, with ami ID, key name, and region in the Provider.tf. I cloned the repo into my local and did the modifications and also changed the name of the repo before I pushed it to my Github and I cloned my modified repo.
+
+main.tf includes user data which links install_jenkins.sh file on which execution install Jenkins,docker,trivy, and start the sonarqube container on port 9000
  
 Step 3 → Setup Sonarqube and Jenkins
 Step 4 → ci-cd pipeline
