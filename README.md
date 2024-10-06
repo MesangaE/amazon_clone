@@ -103,12 +103,27 @@ git clone https://github.com/Aakibgithuber/Amazon-app-Deployment-using-terraform
  cd JENKINS-TF
 
  ![main tfmodify](https://github.com/user-attachments/assets/cf66f730-928e-4018-ae45-b2bbf7e70301)
+
+
+
+ ![newresources](https://github.com/user-attachments/assets/0ffcc126-2d50-43b7-bc4b-a43ea7ca5203)
+
  
 
 
 modify the Main.tf file, with ami ID, key name, and region in the Provider.tf. I cloned the repo into my local and did the modifications and also changed the name of the repo before I pushed it to my Github and I cloned my modified repo.
 
 main.tf includes user data which links install_jenkins.sh file on which execution install Jenkins,docker,trivy, and start the sonarqube container on port 9000
+
+
+![terraform1a](https://github.com/user-attachments/assets/3c2609c4-9aa6-473a-9bca-b438fee85c33)
+
+
+so I decided to create a new key for the instance. so I added 2 resource blocks and I wanted also the mistakes that I made to be included in this screenshot. I had a typo when I was referring to the attribute local_file. It is always good to validate your terraform configuration before you plan. Instead of 3 resources in the original demo, I had 5 resources planned.
+
+
+![terraform pla](https://github.com/user-attachments/assets/ba219eaa-70bd-4fd4-b8d6-114179d5a860)
+
  
 Step 3 → Setup Sonarqube and Jenkins
 Step 4 → ci-cd pipeline
