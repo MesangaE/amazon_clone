@@ -21,8 +21,8 @@ pipeline{
         stage("Sonarqube Analysis "){
             steps{
                 withSonarQubeEnv('sonar-server') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Amazon \
-                    -Dsonar.projectKey=Amazon '''
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Amazon2 \
+                    -Dsonar.projectKey=Amazon2 '''
                 }
             }
         }
